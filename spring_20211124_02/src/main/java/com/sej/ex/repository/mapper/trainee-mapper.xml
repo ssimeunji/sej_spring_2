@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="Trainee">
+ 	<insert id="insertTrainee" parameterType="tdto">
+ 		insert into trainee(t_name, t_age, t_phone, t_gender, t_birth, t_address)
+ 			values(#{t_name},#{t_age},#{t_phone},#{t_gender},#{t_birth},#{t_address})
+ 	</insert>
+ 	
+ 	<select id="findAll" resultType="tdto">
+ 		select * from trainee
+ 	</select>
+ 	
+ 	<select id="findById" parameterType="Long" resultType="tdto">
+ 		select * from trainee where t_number=#{t_number}
+ 	</select>
+ 	
+ 	<select id="delete" parameterType="Long">
+ 		delete from trainee where t_number=#{t_numbrt}
+ 	</select>
+ 	
+ 	<update id="update" parameterType="tdto">
+ 		update trainee set t_phone=#{t_phone}, t_address=#{t_address} where t_number=#{t_number}
+ 	</update>
+ </mapper>
